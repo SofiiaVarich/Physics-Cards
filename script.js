@@ -5,10 +5,10 @@ const navLinks = Array.from(document.querySelectorAll(".nav-link"));
 
 let currentIndex = 0;
 
-// Flip-Effekt auf einer Karte
+// Flip-Effekt pro Karte
 function attachFlipHandler(card) {
   card.addEventListener("click", (ev) => {
-    // Klicks auf Navigations-Elemente ignorieren
+    // Klicks auf Navigations-Elemente nicht als Flip werten
     if (ev.target.closest(".nav-btn") || ev.target.closest(".nav-link")) return;
     card.classList.toggle("is-flipped");
   });
@@ -25,7 +25,7 @@ function showCard(index) {
     const isActive = i === currentIndex;
     card.classList.toggle("active", isActive);
     if (isActive) {
-      // Karte immer mit Frage-Seite starten
+      // immer mit Frage-Seite starten
       card.classList.remove("is-flipped");
     }
   });
@@ -34,7 +34,6 @@ function showCard(index) {
     btn.classList.toggle("active", i === currentIndex);
   });
 
-  // MathJax neu rendern, falls nötig (z.B. beim ersten Anzeigen)
   if (window.MathJax && window.MathJax.typesetPromise) {
     MathJax.typesetPromise();
   }
@@ -65,4 +64,9 @@ window.addEventListener("keydown", (e) => {
   } else if (e.key === "ArrowLeft") {
     showCard(currentIndex - 1);
   }
+});
+
+// Initial
+document.addEventListener("DOMContentLoaded", () => {
+  showCard(0);
 });

@@ -1,6 +1,5 @@
 :root {
-    /* A5 horizontal: 210 mm × 148 mm */
-    --card-width-mm: 210mm;
+    --card-width-mm: 210mm; /* A5 horizontal */
     --card-height-mm: 148mm;
 }
 
@@ -60,7 +59,7 @@ main {
     align-items: center;
 }
 
-/* Viewport: immer nur eine Karte sichtbar */
+/* Viewport: eine Karte pro Screen */
 .card-viewport {
     width: 100%;
     display: flex;
@@ -88,31 +87,24 @@ main {
     position: relative;
     width: 100%;
     height: 100%;
-    transform-style: preserve-3d;
-    transition: transform 0.7s;
-    border-radius: 18px;
-    box-shadow: 0 22px 40px rgba(0, 0, 0, 0.5);
-    overflow: hidden;
 }
 
-/* eigentlicher Flip */
-.card.is-flipped .card-inner {
-    transform: rotateY(180deg);
-}
-
+/* Gemeinsame Eigenschaften der Seiten */
 .card-face {
     position: absolute;
     inset: 0;
-    backface-visibility: hidden;
     border-radius: 18px;
     padding: 1.4rem 1.6rem;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+    transition: transform 0.7s;
 }
 
-/* Patchwork-Stil */
+/* Vorderseite */
 .card-front {
     background: linear-gradient(135deg, #4f46e5, #0f172a);
     border: 8px solid transparent;
@@ -126,8 +118,10 @@ main {
             #6ee7b7 30px
         )
         8;
+    transform: rotateY(0deg);
 }
 
+/* Rückseite */
 .card-back {
     background: linear-gradient(135deg, #ec4899, #111827);
     border: 8px solid transparent;
@@ -141,9 +135,16 @@ main {
             #fca5a5 30px
         )
         8;
-    transform: rotateY(
-        180deg
-    ); /* sorgt dafür, dass die Rückseite nach dem Flip normal lesbar ist */
+    transform: rotateY(180deg);
+}
+
+/* Wenn Karte geflippt ist */
+.card.is-flipped .card-front {
+    transform: rotateY(-180deg);
+}
+
+.card.is-flipped .card-back {
+    transform: rotateY(0deg);
 }
 
 .card-title {
@@ -236,7 +237,7 @@ main {
     border-color: rgba(252, 231, 243, 0.9);
 }
 
-/* Mobile Feintuning */
+/* Mobile */
 @media (max-width: 640px) {
     .card-face {
         padding: 1rem 1.1rem;

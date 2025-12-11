@@ -2,10 +2,10 @@
 <html lang="de">
     <head>
         <meta charset="UTF-8" />
-        <title>Zentralpotential – Quilt-Lernkarten</title>
+        <title>Zentralpotential – Lernkarten</title>
         <link rel="stylesheet" href="style.css" />
 
-        <!-- MathJax for proper math / physics formulas -->
+        <!-- MathJax for proper formulas -->
         <script
             id="MathJax-script"
             async
@@ -16,11 +16,10 @@
     <body>
         <div class="page-wrapper">
             <header>
-                <h1>Zentralpotential – Lernkarten</h1>
+                <h1>Zentralpotential – Quilt-Lernkarten</h1>
                 <p class="hint">
-                    Klicke auf die Karte, um sie umzudrehen. Unten kannst du
-                    zwischen den Karten wechseln – wie bei einer kleinen
-                    Quilt-Ausstellung. 🧵
+                    Klicke auf die Karte, um Frage/Antwort zu flippen. Unten
+                    kannst du zwischen den Karten wechseln. 🧵
                 </p>
             </header>
 
@@ -40,11 +39,12 @@
                                     </div>
                                     <div class="card-text">
                                         Wir betrachten das Zentralpotential \[
-                                        V(r) = -\frac{c}{r^\alpha}. \] Zeige,
-                                        dass das zugehörige Kraftfeld \(\vec
-                                        F(\vec r)\) den Ausdruck \[ \vec F(\vec
-                                        r) = -\frac{\alpha\,c\,\vec
-                                        r}{r^{\alpha+2}} \] besitzt.
+                                        V(r) = -\frac{c}{r^\alpha}, \qquad r =
+                                        |\vec r|. \] Zeige, dass das zugehörige
+                                        Kraftfeld \(\vec F(\vec r)\) den
+                                        Ausdruck \[ \vec F(\vec r) =
+                                        -\frac{\alpha\,c\,\vec r}{r^{\alpha+2}}
+                                        \] besitzt.
                                     </div>
                                 </div>
                                 <div class="tag">Klick für Antwort</div>
@@ -54,15 +54,15 @@
                             <div class="card-face card-back">
                                 <div>
                                     <div class="card-title">
-                                        Lösungsidee zu Teil (a)
+                                        Lösung zu Teil (a)
                                     </div>
                                     <div class="card-text">
                                         Für ein konservatives Feld gilt \[ \vec
                                         F(\vec r) = -\nabla V(r). \] Da \(V\)
                                         nur von \(r = |\vec r|\) abhängt, \[
                                         \nabla V(r) = \frac{\mathrm d V}{\mathrm
-                                        d r} \frac{\vec r}{r}. \] Mit \[ V(r) =
-                                        -c\,r^{-\alpha} \] erhält man \[
+                                        d r}\, \frac{\vec r}{r}. \] Mit \[ V(r)
+                                        = -c\,r^{-\alpha} \] erhält man \[
                                         \frac{\mathrm d V}{\mathrm d r} =
                                         \alpha\,c\,r^{-(\alpha+1)}. \] Damit \[
                                         \nabla V(r) = \alpha\,c\,r^{-(\alpha+1)}
@@ -70,7 +70,9 @@
                                         r}{r^{\alpha+2}}. \] Also \[ \vec F(\vec
                                         r) = -\nabla V(r) =
                                         -\frac{\alpha\,c\,\vec r}{r^{\alpha+2}}.
-                                        \]
+                                        \] \[ \boxed{\vec F(\vec r) =
+                                        -\dfrac{\alpha\,c\,\vec
+                                        r}{r^{\alpha+2}}} \]
                                     </div>
                                 </div>
                                 <div class="tag">Antwort</div>
@@ -81,6 +83,7 @@
                     <!-- Karte 2 (b) -->
                     <div class="card" data-index="1">
                         <div class="card-inner">
+                            <!-- Vorderseite: Frage -->
                             <div class="card-face card-front">
                                 <div>
                                     <div class="card-title">
@@ -90,7 +93,7 @@
                                         Erhaltungsgrößen
                                     </div>
                                     <div class="card-text">
-                                        Für das Feld \[ \vec F(\vec r) =
+                                        Für das Kraftfeld \[ \vec F(\vec r) =
                                         -\frac{\alpha\,c\,\vec r}{r^{\alpha+2}}
                                         \] diskutiere, ob erhalten sind:
                                         <br /><br />
@@ -98,36 +101,60 @@
                                         (ii) Impuls \(\vec p\) <br />
                                         (iii) Drehimpuls \(\vec L = \vec r
                                         \times \vec p\). <br /><br />
-                                        Hängt das vom Wert von \(\alpha\) ab?
+                                        Hängt dieses Verhalten vom Wert von
+                                        \(\alpha\) ab?
                                     </div>
                                 </div>
                                 <div class="tag">Klick für Antwort</div>
                             </div>
 
+                            <!-- Rückseite: Antwort -->
                             <div class="card-face card-back">
                                 <div>
                                     <div class="card-title">
-                                        Lösungsskizze zu Teil (b)
+                                        Lösung zu Teil (b)
                                     </div>
                                     <div class="card-text">
-                                        • Das Feld ist konservativ, also ist die
-                                        Gesamtenergie \[ E = T + V \] erhalten.
+                                        <strong>(i) Energie \(E\)</strong><br />
+                                        Die Lagrange-Funktion \[ L = T - V =
+                                        \frac{1}{2}m\dot{\vec r}^{\,2} - V(r) \]
+                                        hängt nicht explizit von der Zeit ab ⇒
+                                        die Gesamtenergie \[ E = T + V =
+                                        \frac{1}{2}m\dot{\vec r}^{\,2} + V(r) \]
+                                        ist erhalten: \[ \boxed{E \text{ ist
+                                        erhalten.}} \]
                                         <br /><br />
-                                        • Das Potential ist zentral, d.&nbsp;h.
-                                        nur von \(r\) abhängig. Die Kraft zeigt
-                                        daher immer radial: \[ \vec F \parallel
-                                        \vec r. \] Das Drehmoment \[ \vec\tau =
-                                        \vec r \times \vec F = 0 \] ⇒ der
-                                        Drehimpuls \[ \vec L = \vec r \times
-                                        \vec p \] ist erhalten. <br /><br />
-                                        • Der Impuls \(\vec p\) ist im
-                                        Allgemeinen nicht erhalten, weil eine
-                                        resultierende Kraft wirkt: \(\dot{\vec
-                                        p} = \vec F \neq 0\). <br /><br />
-                                        Dieses Verhalten ist unabhängig vom
-                                        konkreten Wert von \(\alpha\);
-                                        entscheidend ist nur, dass es sich um
-                                        ein Zentralpotential handelt.
+                                        <strong>(ii) Impuls \(\vec p\)</strong
+                                        ><br />
+                                        \[ \vec p = m\dot{\vec r}, \qquad
+                                        \dot{\vec p} = m\ddot{\vec r} = \vec
+                                        F(\vec r). \] Da \(\vec F(\vec r) \neq
+                                        0\), ändert sich \(\vec p\) mit der
+                                        Zeit: \[ \boxed{\vec p \text{ ist im
+                                        Allgemeinen nicht erhalten.}} \]
+                                        <br /><br />
+                                        <strong
+                                            >(iii) Drehimpuls \(\vec L\)</strong
+                                        ><br />
+                                        Das Potential ist zentral (\(V =
+                                        V(r)\)), daher ist die Kraft radial: \[
+                                        \vec F(\vec r) \parallel \vec r. \] Das
+                                        Drehmoment \[ \vec\tau = \vec r \times
+                                        \vec F(\vec r) = 0. \] Mit \(\dot{\vec
+                                        L} = \vec\tau\) folgt \[ \dot{\vec L} =
+                                        0 \quad\Rightarrow\quad \vec L =
+                                        \text{konstant}. \] Also: \[ \boxed{\vec
+                                        L \text{ ist erhalten.}} \]
+                                        <br /><br />
+                                        <strong
+                                            >Abhängigkeit von \(\alpha\)</strong
+                                        ><br />
+                                        Die Argumente benutzen nur, dass das
+                                        Feld konservativ und zentral ist. Der
+                                        genaue Wert von \(\alpha\) spielt keine
+                                        Rolle: \[ \boxed{\text{Die
+                                        Erhaltungseigenschaften hängen nicht vom
+                                        konkreten }\alpha\text{ ab.}} \]
                                     </div>
                                 </div>
                                 <div class="tag">Antwort</div>
@@ -138,6 +165,7 @@
                     <!-- Karte 3 (c) -->
                     <div class="card" data-index="2">
                         <div class="card-inner">
+                            <!-- Vorderseite: Frage -->
                             <div class="card-face card-front">
                                 <div>
                                     <div class="card-title">
@@ -147,37 +175,50 @@
                                         Bewegung in einer Ebene
                                     </div>
                                     <div class="card-text">
-                                        Zeige, dass die Bewegung in diesem
-                                        Zentralfeld immer in einer Ebene
-                                        stattfindet, deren Normalenvektor
-                                        parallel zum Drehimpuls \(\vec L\)
-                                        verläuft.
+                                        Zeige, dass die Bewegung in allen
+                                        Kraftfeldern aus Gleichung (2) immer in
+                                        einer Ebene stattfindet, deren
+                                        Normalenvektor parallel zum Drehimpuls
+                                        \(\vec L\) verläuft.
                                     </div>
                                 </div>
                                 <div class="tag">Klick für Antwort</div>
                             </div>
 
+                            <!-- Rückseite: Antwort -->
                             <div class="card-face card-back">
                                 <div>
                                     <div class="card-title">
-                                        Lösungsskizze zu Teil (c)
+                                        Lösung zu Teil (c)
                                     </div>
                                     <div class="card-text">
-                                        Der Drehimpuls \[ \vec L = \vec r \times
-                                        \vec p \] ist erhalten, also bleiben
-                                        Betrag und Richtung von \(\vec L\)
-                                        konstant. <br /><br />
-                                        \(\vec L\) steht immer senkrecht auf der
-                                        Ebene, die von \(\vec r\) und \(\vec p\)
-                                        aufgespannt wird. <br /><br />
-                                        Da sich die Richtung von \(\vec L\)
-                                        nicht ändert, müssen alle Vektoren
-                                        \(\vec r(t)\) in derselben Ebene
-                                        bleiben, die orthogonal zu \(\vec L\)
-                                        ist. <br /><br />
-                                        ⇒ Die Bahn des Teilchens liegt
-                                        vollständig in einer Ebene mit
-                                        Normalenvektor parallel zu \(\vec L\).
+                                        Der Drehimpuls ist \[ \vec L = \vec r
+                                        \times \vec p \] und aufgrund des
+                                        Zentralpotentials erhalten: \[ \dot{\vec
+                                        L} = 0 \quad\Rightarrow\quad \vec L =
+                                        \text{konstant}. \] Betrag
+                                        <em>und Richtung</em> von \(\vec L\)
+                                        bleiben also gleich. <br /><br />
+                                        Zu einem Zeitpunkt \(t_0\) spannen
+                                        \(\vec r(t_0)\) und \(\vec p(t_0)\) eine
+                                        Ebene auf; \(\vec L\) steht senkrecht
+                                        auf dieser Ebene. <br /><br />
+                                        Die Beschleunigung ist \[ \vec a =
+                                        \ddot{\vec r} = \frac{1}{m}\vec F(\vec
+                                        r) = -\frac{\alpha c}{m}\, \frac{\vec
+                                        r}{r^{\alpha+2}}, \] also radial und
+                                        damit in derselben Ebene wie \(\vec r\)
+                                        und \(\vec p\). <br /><br />
+                                        Weil \(\vec L\) konstant bleibt, können
+                                        \(\vec r(t)\) und \(\vec p(t)\) die
+                                        zugehörige Ebene nicht verlassen – sie
+                                        bleiben immer in der Ebene, die
+                                        orthogonal zu \(\vec L\) ist.
+                                        <br /><br />
+                                        Damit gilt: \[ \boxed{\text{Die Bahn des
+                                        Teilchens liegt vollständig in einer
+                                        Ebene mit Normalenvektor parallel zu
+                                        }\vec L.} \]
                                     </div>
                                 </div>
                                 <div class="tag">Antwort</div>
