@@ -2,7 +2,7 @@
 <html lang="de">
     <head>
         <meta charset="UTF-8" />
-        <title>Zentralpotential – Quilt-Karten</title>
+        <title>Zentralpotential – Quilt-Lernkarten</title>
         <link rel="stylesheet" href="style.css" />
     </head>
 
@@ -11,17 +11,18 @@
             <header>
                 <h1>Zentralpotential – Lernkarten</h1>
                 <p class="hint">
-                    Klicke auf die Karte, um sie umzudrehen. Nutze die Buttons
-                    unten, um zwischen den Karten zu wechseln – wie bei einem
-                    gemütlichen Quilt-Sale. 🧵
+                    Klicke auf die Karte, um die Antwort zu sehen. Unten kannst
+                    du zwischen den Karten wechseln – wie bei einer kleinen
+                    Quilt-Ausstellung. 🧵
                 </p>
             </header>
 
             <main>
                 <div class="card-viewport">
-                    <!-- Karte (a) -->
+                    <!-- Karte 1 (a) -->
                     <div class="card active" data-index="0">
                         <div class="card-inner">
+                            <!-- Vorderseite: Frage -->
                             <div class="card-face card-front">
                                 <div>
                                     <div class="card-title">
@@ -31,59 +32,81 @@
                                         Kraftfeld aus dem Potential
                                     </div>
                                     <div class="card-text">
-                                        Zentralpotential:<br />
-                                        <span class="math"
-                                            >V(\vec r) = -
-                                            \dfrac{c}{r^\alpha}</span
-                                        >
+                                        Wir betrachten ein Zentralpotential
+                                        <br /><br />
+                                        <span class="math">
+                                            V(r) = - \,
+                                            \dfrac{c}{r<sup>\u03b1</sup>} &nbsp;
+                                            = &nbsp; -\,c\,r<sup>-&alpha;</sup>.
+                                        </span>
                                         <br /><br />
                                         Zeige, dass das zugehörige Kraftfeld
-                                        <span class="math">\vec F(\vec r)</span>
-                                        den Ausdruck
                                         <span class="math"
-                                            >\vec F(\vec r) = -\dfrac{\alpha c
-                                            \vec r}{r^{\alpha+2}}</span
+                                            ><b>F</b>(<b>r</b>)</span
                                         >
+                                        den Ausdruck <br /><br />
+                                        <span class="math">
+                                            <b>F</b>(<b>r</b>) = -
+                                            \dfrac{\alpha\,c\,\mathbf{r}}{r<sup>\u03b1+2</sup>}
+                                        </span>
                                         besitzt.
                                     </div>
                                 </div>
-                                <div class="tag">Frage</div>
+                                <div class="tag">Klick für Antwort</div>
                             </div>
 
+                            <!-- Rückseite: Antwort (normal lesbar, nicht gedreht) -->
                             <div class="card-face card-back">
                                 <div>
                                     <div class="card-title">
                                         Lösungsidee zu Teil (a)
                                     </div>
                                     <div class="card-text">
-                                        Nutze
-                                        <span class="math"
-                                            >\vec F(\vec r) = -\nabla V(\vec
-                                            r)</span
-                                        >. <br /><br />
-                                        Für ein Zentralpotential
-                                        <span class="math"
-                                            >V(r) = -c r^{-\alpha}</span
-                                        >
-                                        gilt
+                                        Für ein konservatives Kraftfeld gilt
                                         <br />
+                                        <span class="math">
+                                            <b>F</b>(<b>r</b>) = - \nabla V(r).
+                                        </span>
+                                        <br /><br />
+                                        Da <span class="math">V</span> nur von
                                         <span class="math"
-                                            >\dfrac{dV}{dr} = \alpha c
-                                            r^{-\alpha-1}</span
-                                        >. <br /><br />
-                                        Außerdem
-                                        <span class="math"
-                                            >\nabla V(r) =
-                                            \dfrac{dV}{dr}\dfrac{\vec
-                                            r}{r}</span
-                                        >. <br /><br />
-                                        Also:
-                                        <span class="math"
-                                            >\vec F(\vec r) = -\nabla V =
-                                            -\alpha c r^{-\alpha-1} \dfrac{\vec
-                                            r}{r} = -\dfrac{\alpha c \vec
-                                            r}{r^{\alpha+2}}.</span
+                                            >r = |\mathbf{r}|</span
                                         >
+                                        abhängt:
+                                        <br />
+                                        <span class="math">
+                                            \nabla V(r) =
+                                            \dfrac{\mathrm{d}V}{\mathrm{d}r}\,
+                                            \dfrac{\mathbf{r}}{r}.
+                                        </span>
+                                        <br /><br />
+                                        Mit
+                                        <span class="math">
+                                            V(r) = -c\,r<sup>-&alpha;</sup>
+                                        </span>
+                                        erhält man
+                                        <br />
+                                        <span class="math">
+                                            \dfrac{\mathrm{d}V}{\mathrm{d}r} =
+                                            \alpha\,c\,r<sup>-(\alpha+1)</sup>.
+                                        </span>
+                                        <br /><br />
+                                        Somit:
+                                        <br />
+                                        <span class="math">
+                                            \nabla V(r) = \alpha\,c\,r<sup
+                                                >-(\alpha+1)</sup
+                                            >
+                                            \dfrac{\mathbf{r}}{r} =
+                                            \alpha\,c\,\dfrac{\mathbf{r}}{r<sup>\alpha+2</sup>}.
+                                        </span>
+                                        <br /><br />
+                                        Und daher
+                                        <br />
+                                        <span class="math">
+                                            <b>F</b>(<b>r</b>) = -\nabla V(r) =
+                                            -\dfrac{\alpha\,c\,\mathbf{r}}{r<sup>\alpha+2</sup>}.
+                                        </span>
                                     </div>
                                 </div>
                                 <div class="tag">Antwort</div>
@@ -91,7 +114,7 @@
                         </div>
                     </div>
 
-                    <!-- Karte (b) -->
+                    <!-- Karte 2 (b) -->
                     <div class="card" data-index="1">
                         <div class="card-inner">
                             <div class="card-face card-front">
@@ -103,23 +126,30 @@
                                         Erhaltungsgrößen
                                     </div>
                                     <div class="card-text">
-                                        Diskutiere für die Bewegung im Kraftfeld
-                                        aus Gleichung (2), ob folgende Größen
-                                        erhalten sind:
+                                        Für das Kraftfeld aus<br />
+                                        <span class="math">
+                                            <b>F</b>(<b>r</b>) =
+                                            -\dfrac{\alpha\,c\,\mathbf{r}}{r<sup>\alpha+2</sup>}
+                                        </span>
+                                        <br /><br />
+                                        diskutiere, ob erhalten sind:
                                         <br /><br />
                                         (i) Energie <span class="math">E</span
                                         ><br />
                                         (ii) Impuls
-                                        <span class="math">\vec p</span><br />
+                                        <span class="math"><b>p</b></span
+                                        ><br />
                                         (iii) Drehimpuls
-                                        <span class="math"
-                                            >\vec L = \vec r \times \vec p</span
-                                        >.<br /><br />
-                                        Hängt dieses Verhalten vom Wert von
-                                        <span class="math">\alpha</span> ab?
+                                        <span class="math">
+                                            <b>L</b> = \mathbf{r} \times
+                                            \mathbf{p}
+                                        </span>
+                                        <br /><br />
+                                        Hängt das von
+                                        <span class="math">\u03b1</span> ab?
                                     </div>
                                 </div>
-                                <div class="tag">Frage</div>
+                                <div class="tag">Klick für Antwort</div>
                             </div>
 
                             <div class="card-face card-back">
@@ -128,30 +158,40 @@
                                         Lösungsskizze zu Teil (b)
                                     </div>
                                     <div class="card-text">
-                                        • Das Kraftfeld ist konservativ ⇒
-                                        <span class="math">E</span> ist
+                                        • Das Feld ist konservativ, daher ist
+                                        die
+                                        <span class="math">Energie E</span>
                                         erhalten. <br /><br />
-                                        • Das Potential ist zentral (nur von
-                                        <span class="math">r</span> abhängig),
-                                        also
-                                        <span class="math"
-                                            >\vec F \parallel \vec r</span
-                                        >. ⇒ Drehmoment
-                                        <span class="math"
-                                            >\vec\tau = \vec r \times \vec F =
-                                            0</span
-                                        >
-                                        ⇒ <span class="math">\vec L</span> ist
-                                        erhalten. <br /><br />
+                                        • Das Potential ist zentral (nur
+                                        abhängig von
+                                        <span class="math">r</span>). Die Kraft
+                                        zeigt also immer radial:
+                                        <span class="math">
+                                            <b>F</b> ∥ \mathbf{r}.
+                                        </span>
+                                        Das Drehmoment
+                                        <span class="math">
+                                            <b>\tau</b> = \mathbf{r} \times
+                                            \mathbf{F}
+                                        </span>
+                                        verschwindet. <br />
+                                        ⇒ Der Drehimpuls
+                                        <span class="math">
+                                            <b>L</b> = \mathbf{r} \times
+                                            \mathbf{p}
+                                        </span>
+                                        ist erhalten.
+                                        <br /><br />
                                         • Der Impuls
-                                        <span class="math">\vec p</span> ist im
-                                        Allgemeinen nicht erhalten, weil eine
-                                        resultierende Kraft wirkt. <br /><br />
-                                        Dieses Verhalten hängt nicht vom exakten
-                                        Wert von
-                                        <span class="math">\alpha</span> ab –
-                                        nur davon, dass das Potential ein
-                                        Zentralpotential ist.
+                                        <span class="math"><b>p</b></span>
+                                        ist im Allgemeinen nicht erhalten, weil
+                                        eine resultierende Kraft wirkt.
+                                        <br /><br />
+                                        Dieses Verhalten ist unabhängig vom
+                                        konkreten Wert von
+                                        <span class="math">\u03b1</span> –
+                                        entscheidend ist nur, dass das Potential
+                                        ein Zentralpotential ist.
                                     </div>
                                 </div>
                                 <div class="tag">Antwort</div>
@@ -159,7 +199,7 @@
                         </div>
                     </div>
 
-                    <!-- Karte (c) -->
+                    <!-- Karte 3 (c) -->
                     <div class="card" data-index="2">
                         <div class="card-inner">
                             <div class="card-face card-front">
@@ -171,15 +211,15 @@
                                         Bewegung in einer Ebene
                                     </div>
                                     <div class="card-text">
-                                        Zeige, dass die Bewegung in allen
-                                        Kraftfeldern aus Gleichung (2) immer in
-                                        einer Ebene stattfindet, deren
-                                        Normalenvektor parallel zum Drehimpuls
-                                        <span class="math">\vec L</span>
+                                        Zeige, dass die Bewegung in diesem
+                                        Zentralfeld immer in einer Ebene
+                                        stattfindet, deren Normalenvektor
+                                        parallel zum Drehimpuls
+                                        <span class="math"><b>L</b></span>
                                         verläuft.
                                     </div>
                                 </div>
-                                <div class="tag">Frage</div>
+                                <div class="tag">Klick für Antwort</div>
                             </div>
 
                             <div class="card-face card-back">
@@ -189,25 +229,32 @@
                                     </div>
                                     <div class="card-text">
                                         Der Drehimpuls
-                                        <span class="math"
-                                            >\vec L = \vec r \times \vec p</span
-                                        >
-                                        ist erhalten ⇒ Betrag
-                                        <em>und</em> Richtung sind konstant.
-                                        <br /><br />
-                                        <span class="math">\vec L</span> steht
-                                        immer senkrecht auf der Ebene, die durch
-                                        <span class="math">\vec r</span> und
-                                        <span class="math">\vec p</span>
+                                        <span class="math">
+                                            <b>L</b> = \mathbf{r} \times
+                                            \mathbf{p}
+                                        </span>
+                                        ist erhalten, also bleiben sowohl Betrag
+                                        als auch Richtung von
+                                        <span class="math"><b>L</b></span>
+                                        konstant. <br /><br />
+                                        <span class="math"><b>L</b></span> steht
+                                        definitionsgemäß senkrecht auf der
+                                        Ebene, die von
+                                        <span class="math">\mathbf{r}</span> und
+                                        <span class="math">\mathbf{p}</span>
                                         aufgespannt wird. <br /><br />
-                                        Da sich die Richtung von
-                                        <span class="math">\vec L</span> nicht
-                                        ändert, bleiben alle Bahnpunkte in
-                                        derselben Ebene senkrecht zu
-                                        <span class="math">\vec L</span>.
+                                        Wenn sich die Richtung von
+                                        <span class="math"><b>L</b></span> nicht
+                                        ändert, bleiben alle Vektoren
+                                        <span class="math">\mathbf{r}(t)</span>
+                                        in derselben Ebene, die orthogonal zu
+                                        <span class="math"><b>L</b></span> ist.
                                         <br /><br />
                                         ⇒ Die Bahn des Teilchens liegt
-                                        vollständig in dieser Ebene.
+                                        vollständig in einer Ebene mit
+                                        Normalenvektor parallel zu
+                                        <span class="math"><b>L</b></span
+                                        >.
                                     </div>
                                 </div>
                                 <div class="tag">Antwort</div>
@@ -216,7 +263,7 @@
                     </div>
                 </div>
 
-                <!-- Navigation unten wie bei einer Quilt-Auslage -->
+                <!-- Navigation unten -->
                 <nav class="card-nav">
                     <button id="prevCard" class="nav-btn">◀ Zurück</button>
 

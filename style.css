@@ -76,7 +76,6 @@ main {
     height: var(--card-height-mm);
     max-width: min(95vw, 900px);
     max-height: min(60vh, 450px);
-    perspective: 1400px;
     cursor: pointer;
 }
 
@@ -88,30 +87,26 @@ main {
     position: relative;
     width: 100%;
     height: 100%;
-    transform-style: preserve-3d;
-    transition: transform 0.7s;
     border-radius: 18px;
     box-shadow: 0 22px 40px rgba(0, 0, 0, 0.5);
     overflow: hidden;
 }
 
-.card.flipped .card-inner {
-    transform: rotateY(180deg);
-}
-
+/* Vorder-/Rückseite mit einfachem Fade/Slide, kein 3D-Drehen */
 .card-face {
     position: absolute;
     inset: 0;
-    backface-visibility: hidden;
     border-radius: 18px;
     padding: 1.4rem 1.6rem;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    transition:
+        opacity 0.25s ease,
+        transform 0.25s ease;
 }
 
-/* Patchwork-Rand um die Karte */
 .card-front {
     background: linear-gradient(135deg, #4f46e5, #0f172a);
     border: 8px solid transparent;
@@ -125,6 +120,8 @@ main {
             #6ee7b7 30px
         )
         8;
+    opacity: 1;
+    transform: translateX(0);
 }
 
 .card-back {
@@ -140,7 +137,22 @@ main {
             #fca5a5 30px
         )
         8;
-    transform: rotateY(180deg);
+    opacity: 0;
+    transform: translateX(10px);
+    pointer-events: none;
+}
+
+/* Wenn Antwort angezeigt wird */
+.card.show-answer .card-front {
+    opacity: 0;
+    transform: translateX(-10px);
+    pointer-events: none;
+}
+
+.card.show-answer .card-back {
+    opacity: 1;
+    transform: translateX(0);
+    pointer-events: auto;
 }
 
 .card-title {
@@ -171,10 +183,14 @@ main {
     backdrop-filter: blur(4px);
 }
 
-/* kleine Formel-Optik */
+/* Formeln halbwegs "buchmäßig" */
 .math {
-    font-family: "Times New Roman", serif;
+    font-family: "Times New Roman", "STIX Two Math", serif;
     font-style: italic;
+}
+
+.math b {
+    font-style: normal;
 }
 
 /* Navigation unten */
@@ -239,7 +255,7 @@ main {
     border-color: rgba(252, 231, 243, 0.9);
 }
 
-/* kleine Anpassungen für schmale Bildschirme */
+/* Mobile Feintuning */
 @media (max-width: 640px) {
     .card-face {
         padding: 1rem 1.1rem;

@@ -1,20 +1,20 @@
-// Flippen der aktiven Karte beim Klick
-function attachFlipHandler(card) {
-  card.addEventListener("click", (ev) => {
-    // Klicks auf Buttons am Rand ignorieren
-    if (ev.target.closest(".nav-btn") || ev.target.closest(".nav-link")) return;
-    card.classList.toggle("flipped");
-  });
-}
-
 const cards = Array.from(document.querySelectorAll(".card"));
-cards.forEach(attachFlipHandler);
-
-let currentIndex = 0;
-
 const prevBtn = document.getElementById("prevCard");
 const nextBtn = document.getElementById("nextCard");
 const navLinks = Array.from(document.querySelectorAll(".nav-link"));
+
+let currentIndex = 0;
+
+// Frage/Antwort auf derselben Karte umschalten
+function attachFlipHandler(card) {
+  card.addEventListener("click", (ev) => {
+    // Klicks auf Navigations-Elemente nicht als "flip" werten
+    if (ev.target.closest(".nav-btn") || ev.target.closest(".nav-link")) return;
+    card.classList.toggle("show-answer");
+  });
+}
+
+cards.forEach(attachFlipHandler);
 
 function showCard(index) {
   if (index < 0) index = cards.length - 1;
@@ -23,9 +23,9 @@ function showCard(index) {
 
   cards.forEach((card, i) => {
     card.classList.toggle("active", i === currentIndex);
-    // Karte zurückdrehen, wenn sie neu angezeigt wird
     if (i === currentIndex) {
-      card.classList.remove("flipped");
+      // Immer mit Frage-Seite starten
+      card.classList.remove("show-answer");
     }
   });
 
@@ -52,7 +52,7 @@ navLinks.forEach((btn) => {
   });
 });
 
-// Optional: mit Pfeiltasten wechseln
+// Optional: Pfeiltasten für schnellere Navigation
 window.addEventListener("keydown", (e) => {
   if (e.key === "ArrowRight") {
     showCard(currentIndex + 1);
