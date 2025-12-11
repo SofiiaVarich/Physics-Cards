@@ -5,12 +5,12 @@ const navLinks = Array.from(document.querySelectorAll(".nav-link"));
 
 let currentIndex = 0;
 
-// Frage/Antwort auf derselben Karte umschalten
+// Flip-Effekt auf einer Karte
 function attachFlipHandler(card) {
   card.addEventListener("click", (ev) => {
-    // Klicks auf Navigations-Elemente nicht als "flip" werten
+    // Klicks auf Navigations-Elemente ignorieren
     if (ev.target.closest(".nav-btn") || ev.target.closest(".nav-link")) return;
-    card.classList.toggle("show-answer");
+    card.classList.toggle("is-flipped");
   });
 }
 
@@ -22,16 +22,22 @@ function showCard(index) {
   currentIndex = index;
 
   cards.forEach((card, i) => {
-    card.classList.toggle("active", i === currentIndex);
-    if (i === currentIndex) {
-      // Immer mit Frage-Seite starten
-      card.classList.remove("show-answer");
+    const isActive = i === currentIndex;
+    card.classList.toggle("active", isActive);
+    if (isActive) {
+      // Karte immer mit Frage-Seite starten
+      card.classList.remove("is-flipped");
     }
   });
 
   navLinks.forEach((btn, i) => {
     btn.classList.toggle("active", i === currentIndex);
   });
+
+  // MathJax neu rendern, falls nötig (z.B. beim ersten Anzeigen)
+  if (window.MathJax && window.MathJax.typesetPromise) {
+    MathJax.typesetPromise();
+  }
 }
 
 prevBtn.addEventListener("click", (e) => {
@@ -52,7 +58,7 @@ navLinks.forEach((btn) => {
   });
 });
 
-// Optional: Pfeiltasten für schnellere Navigation
+// Pfeiltasten zum Wechseln
 window.addEventListener("keydown", (e) => {
   if (e.key === "ArrowRight") {
     showCard(currentIndex + 1);
