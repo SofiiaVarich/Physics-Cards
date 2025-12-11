@@ -1,9 +1,9 @@
 :root {
-    --card-width-mm: 210mm; /* A5 horizontal */
+    --card-width-mm: 210mm; /* A5 quer */
     --card-height-mm: 148mm;
 }
 
-/* Quilt-artiger Hintergrund */
+/* Seite zentriert */
 body {
     margin: 0;
     min-height: 100vh;
@@ -25,16 +25,18 @@ body {
     background-blend-mode: multiply;
     color: #e5e7eb;
     display: flex;
-    align-items: stretch;
     justify-content: center;
+    align-items: center; /* vertikal zentriert */
 }
 
 .page-wrapper {
-    max-width: 1100px;
     width: 100%;
-    padding: 1.6rem 1.2rem 2.2rem;
+    max-width: 1100px;
+    padding: 1.8rem 1.2rem 2.2rem;
     box-sizing: border-box;
-    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 header {
@@ -43,7 +45,7 @@ header {
 }
 
 h1 {
-    margin: 0 0 0.5rem;
+    margin: 0 0 0.4rem;
     font-size: 1.6rem;
 }
 
@@ -53,61 +55,65 @@ h1 {
     opacity: 0.9;
 }
 
+/* Card-Bereich */
 main {
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-/* Viewport: eine Karte pro Screen */
 .card-viewport {
-    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 1.2rem;
+    margin-bottom: 1.5rem;
+    width: 100%;
 }
 
-/* Karte – A5 horizontal, responsive */
+/* Eine Karte pro Screen */
 .card {
-    display: none;
     width: var(--card-width-mm);
     height: var(--card-height-mm);
-    max-width: min(95vw, 900px);
-    max-height: min(60vh, 450px);
-    perspective: 1400px;
-    cursor: pointer;
+    max-width: 92vw;
+    max-height: 60vh;
+    perspective: 1500px;
+    display: none;
 }
 
 .card.active {
     display: block;
 }
 
+/* Schöner Flip-Effekt */
 .card-inner {
     position: relative;
     width: 100%;
     height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.7s ease;
 }
 
-/* Gemeinsame Eigenschaften der Seiten */
+.card.is-flipped .card-inner {
+    transform: rotateY(180deg);
+}
+
+/* Vorder- und Rückseite */
 .card-face {
     position: absolute;
     inset: 0;
-    border-radius: 18px;
-    padding: 1.4rem 1.6rem;
+    padding: 1.3rem 1.5rem;
     box-sizing: border-box;
+    border-radius: 18px;
+    backface-visibility: hidden;
+    box-shadow: 0 20px 40px rgba(15, 23, 42, 0.7);
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    backface-visibility: hidden;
-    transform-style: preserve-3d;
-    transition: transform 0.7s;
 }
 
-/* Vorderseite */
 .card-front {
     background: linear-gradient(135deg, #4f46e5, #0f172a);
-    border: 8px solid transparent;
+    border: 6px solid transparent;
     border-image: repeating-linear-gradient(
             45deg,
             #f9a8d4,
@@ -117,14 +123,12 @@ main {
             #6ee7b7 20px,
             #6ee7b7 30px
         )
-        8;
-    transform: rotateY(0deg);
+        6;
 }
 
-/* Rückseite */
 .card-back {
     background: linear-gradient(135deg, #ec4899, #111827);
-    border: 8px solid transparent;
+    border: 6px solid transparent;
     border-image: repeating-linear-gradient(
             45deg,
             #fde68a,
@@ -134,107 +138,61 @@ main {
             #fca5a5 20px,
             #fca5a5 30px
         )
-        8;
+        6;
     transform: rotateY(180deg);
 }
 
-/* Wenn Karte geflippt ist */
-.card.is-flipped .card-front {
-    transform: rotateY(-180deg);
-}
-
-.card.is-flipped .card-back {
-    transform: rotateY(0deg);
-}
-
+/* Inhalt im Card-Body */
 .card-title {
-    font-weight: 700;
+    margin: 0 0 0.5rem;
     font-size: 1.25rem;
-    margin-bottom: 0.3rem;
 }
 
-.card-subtitle {
-    font-size: 0.95rem;
-    opacity: 0.95;
-    margin-bottom: 0.6rem;
-}
-
-.card-text {
+.card-body {
     font-size: 0.95rem;
     line-height: 1.4;
+    flex: 1;
+    margin-top: 0.2rem;
 }
 
+/* Scrollbereich nur auf Antwortseite */
+.card-body-scroll {
+    overflow-y: auto;
+    padding-right: 0.4rem; /* Platz für Scrollbar */
+}
+
+/* kleine Tag-Leiste unten */
 .tag {
-    margin-top: 0.9rem;
+    margin-top: 0.7rem;
     font-size: 0.8rem;
     align-self: flex-start;
     padding: 0.25rem 0.7rem;
     border-radius: 999px;
-    border: 1px solid rgba(243, 244, 246, 0.7);
+    border: 1px solid rgba(248, 250, 252, 0.7);
     background: rgba(15, 23, 42, 0.6);
-    backdrop-filter: blur(4px);
 }
 
-/* Navigation unten */
+/* Navigation */
 .card-nav {
     display: flex;
-    align-items: center;
     justify-content: center;
     gap: 0.8rem;
     flex-wrap: wrap;
 }
 
-.nav-btn {
+.nav-btn,
+.nav-link {
     border: none;
-    padding: 0.5rem 0.9rem;
+    padding: 0.45rem 0.9rem;
     border-radius: 999px;
     background: rgba(15, 23, 42, 0.9);
     color: #e5e7eb;
-    font-size: 0.95rem;
     cursor: pointer;
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
-    transition:
-        transform 0.15s,
-        box-shadow 0.15s,
-        background 0.15s;
-}
-
-.nav-btn:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.45);
-    background: rgba(30, 64, 175, 0.95);
-}
-
-.nav-links {
-    display: flex;
-    gap: 0.4rem;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-.nav-link {
-    border-radius: 999px;
-    border: 1px solid rgba(226, 232, 240, 0.6);
-    padding: 0.35rem 0.8rem;
-    font-size: 0.85rem;
-    background: rgba(15, 23, 42, 0.7);
-    color: #e5e7eb;
-    cursor: pointer;
-    transition:
-        background 0.15s,
-        transform 0.15s,
-        box-shadow 0.15s;
-}
-
-.nav-link:hover {
-    background: rgba(30, 64, 175, 0.9);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.45);
-    transform: translateY(-1px);
+    font-size: 0.9rem;
 }
 
 .nav-link.active {
-    background: rgba(236, 72, 153, 0.9);
-    border-color: rgba(252, 231, 243, 0.9);
+    background: rgba(236, 72, 153, 0.95);
 }
 
 /* Mobile */
@@ -247,7 +205,7 @@ main {
         font-size: 1.05rem;
     }
 
-    .card-text {
+    .card-body {
         font-size: 0.9rem;
     }
 }
